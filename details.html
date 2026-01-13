@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Details | Stream</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: #0f0f1a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .payment-details {
+      background: #1a1a2e;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      color: #ff2e63;
+      margin-bottom: 10px;
+    }
+
+    .box {
+      background: #121225;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+
+    .box p {
+      margin: 10px 0;
+      color: #ddd;
+    }
+
+    .countdown {
+      font-size: 26px;
+      color: #ff2e63;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-details" id="page">
+    <h2>Make Your Payment</h2>
+    <p>Use the details below to complete payment</p>
+
+    <div class="box">
+      <p><strong>Bank:</strong> Palmpay</p>
+      <p><strong>Account Name:</strong> Akhuamhenkhun Zion Irosayike</p>
+      <p>
+  <strong>Account Number:</strong>
+  <span id="acctNo">9157417925</span>
+  <button id="copyBtn" style="
+    margin-left:10px;
+    padding:5px 10px;
+    border:none;
+    border-radius:6px;
+    background:#ff2e63;
+    color:#fff;
+    cursor:pointer;
+    font-size:12px;
+  ">Copy</button>
+</p>
+      <p><strong>Amount:</strong> ₦10,000</p>
+    </div>
+
+    <p>Time remaining</p>
+    <div class="countdown" id="timer">05:00</div>
+    <button id="doneBtn" style="
+  margin-top:20px;
+  padding:14px 20px;
+  width:100%;
+  border:none;
+  border-radius:30px;
+  background:#28c76f;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+">
+  Payment Done
+</button>
+  </div>
+
+  <script>
+  /* =========================
+     COUNTDOWN TIMER
+  ========================== */
+  let time = 5 * 60;
+  const timerEl = document.getElementById("timer");
+  const page = document.getElementById("page");
+  const doneBtn = document.getElementById("doneBtn");
+
+  const countdown = setInterval(() => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    timerEl.textContent =
+      `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+    time--;
+
+    if (time < 0) {
+      clearInterval(countdown);
+      document.body.innerHTML = "";
+    }
+  }, 1000);
+
+  /* =========================
+     DISABLE REFRESH
+  ========================== */
+  const blockReload = (e) => {
+    e.preventDefault();
+    e.returnValue = "";
+  };
+
+  window.addEventListener("beforeunload", blockReload);
+
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "F5" ||
+      (e.ctrlKey && e.key === "r") ||
+      (e.metaKey && e.key === "r")
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  /* =========================
+     COPY ACCOUNT NUMBER
+  ========================== */
+  const copyBtn = document.getElementById("copyBtn");
+  const acctNo = document.getElementById("acctNo");
+
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(acctNo.textContent).then(() => {
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => copyBtn.textContent = "Copy", 1500);
+    });
+  });
+
+  /* =========================
+     PAYMENT DONE ACTION
+  ========================== */
+  /*doneBtn.addEventListener("click", () => {
+    clearInterval(countdown);
+
+    window.removeEventListener("beforeunload", blockReload);
+
+    page.innerHTML = `
+      <h2 style="color:#28c76f;">Payment Submitted</h2>
+      <p style="margin-top:10px;">
+        Your payment is being confirmed.<br>
+        Please wait while we verify your transaction.
+      </p>
+      <p style="margin-top:15px; color:#aaa;">
+        Do not refresh this page.
+      </p>
+    `;
+  });*/
+  
+  doneBtn.addEventListener("click", () => {
+    clearInterval(countdown);
+    window.removeEventListener("beforeunload", blockReload);
+
+    page.innerHTML = `
+      <h2 style="color:#28c76f;">Payment Submitted</h2>
+      <p style="margin-top:10px;">
+        Redirecting to WhatsApp for confirmation…
+      </p>
+      <p style="margin-top:15px; color:#aaa;">
+        Please do not close this page.
+      </p>
+    `;
+
+    const phone = "2349157417925"; 
+    //CHANGE THIS
+    const message = encodeURIComponent(
+      "Hello STREAM AFRICA, I have completed my payment. Please verify."
+    );
+
+    setTimeout(() => {
+      window.location.href = `https://wa.me/${phone}?text=${message}`;
+    }, 4000); // 4 seconds delay
+  });
+
+</script>
+</body>
+</html>

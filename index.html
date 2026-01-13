@@ -1,0 +1,413 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Streamio – Watch Anywhere</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #0f0f1a; color: #fff; }header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  background: rgba(15,15,26,0.9);
+}
+
+header h1 { color: #ff2e63; }
+
+nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') center/cover no-repeat;
+}
+
+.hero h2 { font-size: 48px; margin-bottom: 20px; }
+.hero p { font-size: 18px; margin-bottom: 30px; color: #ddd; }
+
+.btn {
+  background: #ff2e63;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section { padding: 60px 40px; }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #1a1a2e;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.card h3 { margin-bottom: 10px; color: #ff2e63; }
+
+.preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.preview video {
+  width: 100%;
+  border-radius: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #0b0b14;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.feature-block {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.feature-block img {
+  width: 45%;
+  border-radius: 15px;
+}
+
+.feature-text {
+  width: 55%;
+}
+
+.feature-text h3 {
+  color: #ff2e63;
+  margin-bottom: 10px;
+}
+
+.feature-text p {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.feature-block.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .feature-block,
+  .feature-block.reverse {
+    flex-direction: column;
+  }
+
+  .feature-block img,
+  .feature-text {
+    width: 100%;
+  }
+}
+
+   /* .miamor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+        img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        margin: 0 auto;
+    }*/
+
+    a {
+        text-decoration: none;
+    }
+        /* Optional: make layout adapt on larger screens */
+   /* @media (min-width: 768px) {
+        .miamor {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+        }
+    
+        .miamor img {
+            width: 60%;
+        }
+    }*/
+    .features-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-item img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.feature-text h3 {
+  color: #ff2e63;
+  margin-bottom: 10px;
+}
+
+.feature-text p {
+  color: #ddd;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+/* Read more logic */
+.more-text {
+  display: none;
+}
+
+.read-more {
+  color: #ff2e63;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+  </style>
+</head>
+<body>  <header>
+    <h1>Stream</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+    <!--  <a href="#preview">Preview</a>-->
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>  <div class="hero">
+    <div>
+      <h2>Stream & Get Paid</h2>
+      <p>Earn while you vibe!  Get paid to join the Stream </p>
+      <a href="signup.html" class="btn">GET STARTED</a>
+    </div>
+  </div>  
+  <!--<section id="features">
+    <h2 style="text-align:center; margin-bottom:40px;">Why Choose Us</h2>
+    <div class="features">
+      <div class="card">
+        <h3>Instant Streaming</h3>
+        <p>Videos start playing instantly without redirects.</p>
+      </div>
+      <div class="card">
+        <h3>Mobile Friendly</h3>
+        <p>Optimized for phones, tablets, and desktop.</p>
+      </div>
+      <div class="card">
+        <h3>High Quality</h3>
+        <p>Enjoy smooth HD playback with low data usage.</p>
+      </div>
+    </div>
+  </section>-->
+
+  <!----
+  <section id="features">
+  <h2 style="text-align:center; margin-bottom:40px;">Why Choose Us</h2>
+<div class="miamor">
+  <div class="feature-block">
+    <img src="images/stream1.jpeg" alt="Streaming">
+    <div class="feature-text">
+      <h3>🚀 STREAM PRE-LAUNCH TIKTOK CHALLENGE</br>
+💚 50 Days. Daily Winners. ₦20,000 Every Day! 💚</h3>
+      <p>STREAM is taking over 2026 and we’re starting the movement on TikTok!</p>
+    <p>We’re inviting creators, influencers and everyday content lovers to join the official <b>STREAM Pre-Launch TikTok Challenge</b>, where <b>creators 
+        will be rewarded daily with ₦20,000</b> for amazing content about STREAM.</p>
+    <h3>HOW TO JOIN⏬️⏬️⏬</h3>
+    <p>
+        1️⃣ Follow @officialstreamafrica on TikTok <br>
+        2️⃣ Create a clear, engaging video explaining what STREAM is and its features<br>
+        3️⃣ Tag @officialstreamafrica <br>
+        4️⃣ Use these hashtags: <br>
+#Stream #Streamers #StreamPlatform #StreamAfrica2026
+(+ other trending hashtags for reach)
+    </p>
+    <p>🎯 The <b>best videos</b> each day based on creativity, clarity and views will be selected as winners</p>
+<p>This is more than a challenge. <br>
+It’s the beginning of the <b>STREAM movement</b>.</p>    
+</div>
+  </div>
+
+  <div class="feature-block reverse">
+    <img src="images/stream2.jpeg" alt="Mobile Friendly">
+    <div class="feature-text">
+      <h3>✅ STREAM AFRICA — OFFICIALLY REGISTERED & VERIFIED</h3>
+      <p> At <b>STREAM AFRICA</b>, trust is not a promise,  
+        it’s the standard we operate by.</p>
+       <div></ <p>We are pleased to confirm that <b>STREAM AFRICA is fully registered and certified with the 
+Corporate Affairs Commission (CAC) of Nigeria</b>, making us a legally recognized and compliant business organization.
+This means everything we do, from partnerships to programs, runs within a proper legal structure, guided by transparency, responsibility, and integrity</p></div>
+<div>
+    <p>Our certification gives every member and partner the assurance that they are working with a credible, well-structured, and dependable brand</p>
+</div> 
+<p>Joining <b>STREAM AFRICA</b> is more than joining a platform, it is becoming part of 
+    a company that is <b>legitimate, accountable, and built for long-term impact</b></p>   
+<p><b>STREAM AFRICA</b>: <i>The Brand you can trust </i> 💎</p>
+</div>
+  </div>
+
+  <div class="feature-block">
+    <img src="images/stream3.jpeg" alt="High Quality">
+    <div class="feature-text">
+      <h3>STREAM AFRICA: A NEW LANGUAGE OF DIGITAL WEALTH</h3>
+      <p>At Stream Africa, we are not just launching another platform, we are introducing a new operating system for the digital economy.</p>
+      <p>That’s why the terminologies you see here are not the regular affiliate terms. They represent a completely new way to earn, grow, and build influence in the Stream structure.</p>
+      <p>These terms reflect our mission: to move creators, partners, and everyday users from participation to ownership, from promotion to partnership</p>
+      <p>
+       🔥 The difference is clear. <br>
+       💎 The system is powerful. <br>
+        🚀 The movement has begun. <br>
+      </p>
+      <p><i> Life in Motion, Income in Continuous Flow</i></p>
+    </div>
+  </div>
+  </div>
+  <a href="features.html"><p>KNOW MORE ...</p></a>
+</section>
+-->
+
+<section id="features">
+  <h2 style="text-align:center; margin-bottom:50px;">Why Choose Us</h2>
+
+  <div class="features-wrapper">
+
+    <!-- FEATURE 1 -->
+    <div class="feature-item">
+      <img src="images/stream1.jpeg" alt="Stream Challenge">
+
+      <div class="feature-text">
+        <h3>🚀 STREAM PRE-LAUNCH TIKTOK CHALLENGE</h3>
+
+        <p>
+          STREAM is taking over 2026 and we’re starting the movement on TikTok.
+        </p>
+
+        <div class="more-text">
+          <p>
+            Join the official STREAM Pre-Launch TikTok Challenge where creators
+            are rewarded daily with ₦20,000 for amazing content.
+          </p>
+          <p>
+            Follow @officialstreamafrica, create engaging videos, tag us and use
+            #StreamAfrica2026 to qualify.
+          </p>
+        </div>
+
+        <span class="read-more">Read more</span>
+      </div>
+    </div>
+
+    <!-- FEATURE 2 -->
+    <div class="feature-item">
+      <img src="images/stream2.jpeg" alt="Registered Company">
+
+      <div class="feature-text">
+        <h3>✅ STREAM AFRICA — OFFICIALLY REGISTERED</h3>
+
+        <p>
+          STREAM AFRICA is fully registered with Nigeria’s Corporate Affairs Commission.
+        </p>
+
+        <div class="more-text">
+          <p>
+            Our CAC certification ensures transparency, accountability and long-term credibility.
+          </p>
+          <p>
+            You are joining a legally recognized and dependable digital brand.
+          </p>
+        </div>
+
+        <span class="read-more">Read more</span>
+      </div>
+    </div>
+
+    <!-- FEATURE 3 -->
+    <div class="feature-item">
+      <img src="images/stream3.jpeg" alt="Digital Wealth">
+
+      <div class="feature-text">
+        <h3>🌍 A NEW LANGUAGE OF DIGITAL WEALTH</h3>
+
+        <p>
+          STREAM AFRICA is introducing a new operating system for the digital economy.
+        </p>
+
+        <div class="more-text">
+          <p>
+            Our system moves users from promotion to partnership and from participation to ownership.
+          </p>
+          <p>
+            Life in motion. Income in continuous flow.
+          </p>
+        </div>
+
+        <span class="read-more">Read more</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:40px;">
+    <a href="features.html" class="btn">KNOW MORE</a>
+  </div>
+</section>
+
+
+    <section id="preview">
+    <!--<h2 style="text-align:center; margin-bottom:40px;">Watch Preview</h2>
+    <div class="preview">
+      <video src="sample1.mp4" autoplay muted loop></video>
+      <video src="sample2.mp4" autoplay muted loop></video>
+      <video src="sample3.mp4" autoplay muted loop></video>
+    </div>
+  </section> --> <footer>
+    © 2026 Stream. All rights reserved.
+  </footer>
+
+  <script>
+  document.querySelectorAll('.read-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const moreText = btn.previousElementSibling;
+      const isOpen = moreText.style.display === 'block';
+
+      moreText.style.display = isOpen ? 'none' : 'block';
+      btn.textContent = isOpen ? 'Read more' : 'Read less';
+    });
+  });
+</script>
+
+</body>
+</html>
